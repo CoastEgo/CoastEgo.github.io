@@ -24,8 +24,17 @@ changefreq = "monthly"
 priority = 0.5
 filename = "sitemap.xml"
 
-[params]
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.extensions]
+      [markup.goldmark.extensions.passthrough]
+        enable = true
+        [markup.goldmark.extensions.passthrough.delimiters]
+          block = [['\[', '\]'], ['$$', '$$']]
+          inline = [['\(', '\)'], ['$', '$']]
 
+[params]
+math = true
 text_color = ""
 author = ""
 favicon = ""

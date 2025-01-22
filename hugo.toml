@@ -42,8 +42,25 @@ site_logo = ""
 description = ""
 # choose a background color from any on this page: https://tachyons.io/docs/themes/skins/ and preface it with "bg-"
 background_color_class = "bg-gray"
-recent_posts_number = 1
+recent_posts_number = 3
 
-[[params.ananke_socials]]
-name = "twitter"
-url = "https://twitter.com/GoHugoIO"
+featured_image_class = "cover bg-top"
+cover_dimming_class = "bg-black-20"
+summary_dimming_class = "bg-black-80"
+
+[params.ananke.social.share]
+networks = [
+  "twitter",
+]
+
+[params.ananke.social.email]
+email = "rhb23@mails.tsinghua.edu.cn"
+
+[params.ananke.social.follow]
+networks = [
+  "github"
+]
+
+[params.ananke.social.github]
+# url = "https://github.com/CoastEgo"
+username = "CoastEgo"

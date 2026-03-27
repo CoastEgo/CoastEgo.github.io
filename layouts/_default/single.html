@@ -1,0 +1,32 @@
+{{ define "main" }}
+  <div class="page-shell">
+    <article class="paper-layout">
+      <div class="paper-layout__meta">
+        <span class="paper-layout__tag">{{ .Section | humanize }}</span>
+        <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time>
+      </div>
+
+      {{ with .Summary }}
+        <p class="paper-layout__summary">{{ . | plainify }}</p>
+      {{ end }}
+
+      {{ if or .Params.paper_url .Params.code_url .Params.slides_url }}
+        <div class="paper-layout__actions">
+          {{ with .Params.paper_url }}
+            <a class="button button--secondary" href="{{ . }}" target="_blank" rel="noopener">Paper</a>
+          {{ end }}
+          {{ with .Params.code_url }}
+            <a class="button button--secondary" href="{{ . }}" target="_blank" rel="noopener">Code</a>
+          {{ end }}
+          {{ with .Params.slides_url }}
+            <a class="button button--secondary" href="{{ . }}" target="_blank" rel="noopener">Slides</a>
+          {{ end }}
+        </div>
+      {{ end }}
+
+      <div class="page-prose article-prose">
+        {{ .Content }}
+      </div>
+    </article>
+  </div>
+{{ end }}

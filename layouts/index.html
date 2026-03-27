@@ -1,0 +1,58 @@
+{{ define "title" }}{{ .Site.Title }}{{ end }}
+
+{{ define "main" }}
+  {{ $works := first 3 ((where site.RegularPages "Section" "works").ByDate.Reverse) }}
+
+  <div class="page-shell home-layout">
+    <section class="home-layout__intro">
+      <div class="home-summary page-prose">
+        {{ .Content }}
+      </div>
+
+      <div class="info-grid">
+        <section class="info-card">
+          <p class="section-label">Research interests</p>
+          <h2>Microlensing, inference, and scientific machine learning</h2>
+          <p>
+            My current work centers on binary microlensing modeling, differentiable
+            scientific computing, and practical statistical inference for astrophysical data.
+          </p>
+        </section>
+
+        <section class="info-card">
+          <p class="section-label">Current position</p>
+          <h2>Ph.D. Student</h2>
+          <p>Department of Astronomy, Tsinghua University.</p>
+          <p>Working with Wei Zhu on microlensing and exoplanet-related modeling problems.</p>
+        </section>
+      </div>
+    </section>
+
+    <section class="home-section">
+      <div class="section-heading">
+        <p class="section-label">Selected research</p>
+        <h2>Highlighted work</h2>
+        <p>Methods, software, and results that are central to my current research.</p>
+      </div>
+
+      <div class="feature-list">
+        {{ range $works }}
+          {{ $page := . }}
+          <article class="feature-card">
+            {{ with .Params.featured_image }}
+              <a class="feature-card__media" href="{{ $page.RelPermalink }}">
+                <img src="{{ . | relURL }}" alt="{{ $page.Title }}">
+              </a>
+            {{ end }}
+            <div class="feature-card__body">
+              <p class="section-label">{{ .Date.Format "January 2006" }}</p>
+              <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+              <p>{{ .Summary | default .Description | plainify }}</p>
+              <a class="feature-card__link" href="{{ .RelPermalink }}">Read more</a>
+            </div>
+          </article>
+        {{ end }}
+      </div>
+    </section>
+  </div>
+{{ end }}

@@ -1,0 +1,30 @@
+{{ $github := "" }}
+{{ with site.Params.ananke.social.github.username }}
+  {{ $github = printf "https://github.com/%s/" . }}
+{{ end }}
+{{ $email := "" }}
+{{ with site.Params.ananke.social.email.email }}
+  {{ $email = printf "mailto:%s" . }}
+{{ end }}
+
+<footer class="site-footer" role="contentinfo">
+  <div class="site-shell site-footer__inner">
+    <div>
+      <p class="site-footer__title">Haibin Ren</p>
+      <p class="site-footer__text">
+        Ph.D. student in astronomy working on microlensing, inference, and research software.
+      </p>
+      <p class="site-footer__copyright">© {{ now.Year }} Haibin Ren</p>
+    </div>
+    <div class="site-footer__links">
+      {{ with $email }}
+        <a class="site-footer__link" href="{{ . }}">Email</a>
+      {{ end }}
+      {{ with $github }}
+        <a class="site-footer__link" href="{{ . }}" target="_blank" rel="noopener">GitHub</a>
+      {{ end }}
+      <a class="site-footer__link" href="{{ "/works/" | relURL }}">Research</a>
+      <a class="site-footer__link" href="{{ "/about/" | relURL }}">About</a>
+    </div>
+  </div>
+</footer>

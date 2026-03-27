@@ -1,41 +1,56 @@
-{{ $featured_image := partial "func/GetFeaturedImage.html" . }}
-{{ if $featured_image }}
-  {{/* Trimming the slash and adding absURL make sure the image works no matter where our site lives */}}
-  {{ $featured_image_class := site.Params.featured_image_class | default "cover bg-top" }}
-  <header class="{{ $featured_image_class }}" style="background-image: url('{{ $featured_image }}');">
-    {{ $cover_dimming_class := site.Params.cover_dimming_class | default "bg-black-60" }}
-    <div class="{{ $cover_dimming_class }}">
-      {{ partial "site-navigation.html" .}}
-      <div class="tc-l pv4 pv6-l ph3 ph4-ns">
-        <h1 class="f2 f-subheadline-l fw2 white-90 mb0 lh-title">
-          {{ .Title | default .Site.Title }}
-        </h1>
-        {{ with .Params.description }}
-          <h2 class="fw1 f5 f3-l white-80 measure-wide-l center mt3">
-            {{ . }}
-          </h2>
+{{ $featuredImage := .Params.featured_image }}
+{{ $github := "" }}
+{{ with site.Params.ananke.social.github.username }}
+  {{ $github = printf "https://github.com/%s/" . }}
+{{ end }}
+{{ $email := "" }}
+{{ with site.Params.ananke.social.email.email }}
+  {{ $email = printf "mailto:%s" . }}
+{{ end }}
+
+{{ if .IsHome }}
+  <header class="site-hero{{ if $featuredImage }} site-hero--image{{ end }}">
+    {{ if $featuredImage }}
+      <div class="site-hero__media" style="background-image: url('{{ $featuredImage | absURL }}');"></div>
+    {{ end }}
+    <div class="site-hero__scrim"></div>
+    {{ partial "site-navigation.html" . }}
+    <div class="site-shell site-hero__body">
+      <p class="site-hero__eyebrow">Department of Astronomy, Tsinghua University</p>
+      <h1 class="site-hero__title">{{ .Title | default .Site.Title }}</h1>
+      {{ with .Params.description }}
+        <p class="site-hero__summary">{{ . }}</p>
+      {{ end }}
+      <div class="site-hero__actions">
+        <a class="button button--primary" href="{{ "/works/" | relURL }}">Research</a>
+        <a class="button button--secondary" href="{{ "/about/" | relURL }}">About</a>
+        {{ with $email }}
+          <a class="button button--ghost" href="{{ . }}">Email</a>
+        {{ end }}
+        {{ with $github }}
+          <a class="button button--ghost" href="{{ . }}" target="_blank" rel="noopener">GitHub</a>
         {{ end }}
       </div>
-      {{/* Add caption below the image */}}
       {{ with .Params.featured_image_caption }}
-        <div class="caption white-80 f4 mt4">{{ . }}</div>
+        <p class="site-hero__caption">{{ . }}</p>
       {{ end }}
     </div>
   </header>
 {{ else }}
-  <header>
-    <div class="pb3-m pb6-l {{ .Site.Params.background_color_class | default "bg-black" }}">
-      {{ partial "site-navigation.html" . }}
-      <div class="tc-l pv3 ph3 ph4-ns">
-        <h1 class="f2 f-subheadline-l fw2 light-silver mb0 lh-title">
-          {{ .Title | default .Site.Title }}
-        </h1>
-        {{ with .Params.description }}
-          <h2 class="fw1 f5 f3-l white-80 measure-wide-l center lh-copy mt3 mb4">
-            {{ . }}
-          </h2>
+  <header class="page-hero">
+    {{ partial "site-navigation.html" . }}
+    <div class="site-shell page-hero__body">
+      <p class="page-hero__eyebrow">
+        {{ if .Section }}
+          {{ .Section | humanize }}
+        {{ else }}
+          Profile
         {{ end }}
-      </div>
+      </p>
+      <h1 class="page-hero__title">{{ .Title | default .Site.Title }}</h1>
+      {{ with .Params.description }}
+        <p class="page-hero__summary">{{ . }}</p>
+      {{ end }}
     </div>
   </header>
 {{ end }}

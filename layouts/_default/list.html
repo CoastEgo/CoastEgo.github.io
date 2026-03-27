@@ -1,0 +1,40 @@
+{{ define "main" }}
+  {{ $pages := .RegularPages.ByDate.Reverse }}
+
+  <div class="page-shell">
+    <section class="page-content page-content--narrow">
+      {{ with .Content }}
+        <div class="page-prose section-intro">
+          {{ . }}
+        </div>
+      {{ end }}
+    </section>
+
+    {{ if gt (len $pages) 0 }}
+      <section class="listing-grid">
+        {{ range $pages }}
+          {{ $page := . }}
+          <article class="listing-card">
+            {{ with .Params.featured_image }}
+              <a class="listing-card__media" href="{{ $page.RelPermalink }}">
+                <img src="{{ . | relURL }}" alt="{{ $page.Title }}">
+              </a>
+            {{ end }}
+            <div class="listing-card__body">
+              <p class="section-label">{{ .Date.Format "January 2, 2006" }}</p>
+              <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+              <p>{{ .Summary | default .Description | plainify }}</p>
+              <a class="feature-card__link" href="{{ .RelPermalink }}">Open</a>
+            </div>
+          </article>
+        {{ end }}
+      </section>
+    {{ else if eq .Section "blog" }}
+      <section class="empty-state">
+        <p class="section-label">Notes</p>
+        <h2>Posts are not published yet.</h2>
+        <p>This section will be used for short research notes, updates, and occasional technical writing.</p>
+      </section>
+    {{ end }}
+  </div>
+{{ end }}

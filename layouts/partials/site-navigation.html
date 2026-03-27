@@ -1,0 +1,22 @@
+{{ $current := . }}
+{{ $blogSection := site.GetPage "section" "blog" }}
+
+<nav class="site-nav" aria-label="Primary">
+  <div class="site-shell site-nav__inner">
+    <a class="site-nav__brand" href="{{ "/" | relURL }}">{{ site.Title }}</a>
+    <div class="site-nav__links">
+      {{ range site.Menus.main }}
+        {{ $show := true }}
+        {{ if eq .URL "/blog/" }}
+          {{ if or (not $blogSection) (eq (len $blogSection.RegularPages) 0) }}
+            {{ $show = false }}
+          {{ end }}
+        {{ end }}
+        {{ if $show }}
+          {{ $isCurrent := or ($current.IsMenuCurrent "main" .) ($current.HasMenuCurrent "main" .) (eq $current.RelPermalink .URL) }}
+          <a class="site-nav__link{{ if $isCurrent }} is-active{{ end }}" href="{{ .URL }}">{{ .Name }}</a>
+        {{ end }}
+      {{ end }}
+    </div>
+  </div>
+</nav>

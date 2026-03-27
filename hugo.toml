@@ -37,7 +37,7 @@ filename = "sitemap.xml"
 math = true
 text_color = ""
 author = ""
-favicon = ""
+favicon = "/favicon.svg"
 site_logo = ""
 description = ""
 # choose a background color from any on this page: https://tachyons.io/docs/themes/skins/ and preface it with "bg-"

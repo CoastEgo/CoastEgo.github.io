@@ -5,11 +5,18 @@
 
   <div class="page-shell home-layout">
     <section class="home-layout__intro">
-      <div class="home-summary page-prose">
-        {{ .Content }}
+      <div class="portrait-card" aria-label="Portrait">
+        <div class="portrait-card__frame">
+          <img src="{{ "images/portrait.jpg" | relURL }}" alt="Portrait of Haibin Ren">
+        </div>
       </div>
 
-      <div class="info-grid">
+      <div class="home-intro-details">
+        <div class="home-summary page-prose">
+          <p class="section-label">Profile</p>
+          {{ .Content }}
+        </div>
+
         <section class="info-card info-card--focus">
           <p class="section-label">Research areas</p>
           <p class="focus-intro">

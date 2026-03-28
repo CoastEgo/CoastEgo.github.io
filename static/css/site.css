@@ -117,11 +117,15 @@ main[role="main"] {
 }
 
 .site-hero__body {
+  padding: 5.5rem 0 3rem;
+}
+
+.site-hero__copy {
   display: flex;
-  min-height: calc(36rem - 5rem);
   flex-direction: column;
   justify-content: flex-end;
-  padding: 5.5rem 0 3rem;
+  min-height: calc(36rem - 5rem);
+  max-width: 42rem;
 }
 
 .site-hero__eyebrow,
@@ -306,12 +310,19 @@ main[role="main"] {
 
 .home-layout__intro {
   display: grid;
-  grid-template-columns: minmax(0, 1.2fr) minmax(20rem, 0.9fr);
+  grid-template-columns: minmax(14rem, 16rem) minmax(0, 1fr);
   gap: 1.5rem;
   align-items: start;
 }
 
+.home-intro-details {
+  display: grid;
+  gap: 1.5rem;
+  align-content: start;
+}
+
 .home-summary,
+.portrait-card,
 .info-card,
 .listing-card,
 .feature-card,
@@ -326,9 +337,27 @@ main[role="main"] {
 }
 
 .home-summary,
+.portrait-card,
 .section-intro,
 .paper-layout {
   padding: 1.8rem 1.8rem 2rem;
+}
+
+.portrait-card__frame {
+  width: 100%;
+  overflow: hidden;
+  border-radius: calc(var(--radius) - 6px);
+  box-shadow: inset 0 0 0 1px rgba(63, 52, 42, 0.06);
+  background:
+    linear-gradient(180deg, rgba(255, 248, 238, 0.88), rgba(233, 223, 210, 0.72));
+}
+
+.portrait-card__frame img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  object-position: 50% 28%;
 }
 
 .page-prose {
@@ -339,12 +368,6 @@ main[role="main"] {
 
 .page-prose p:first-child {
   margin-top: 0;
-}
-
-.info-grid {
-  display: grid;
-  gap: 1.25rem;
-  align-content: start;
 }
 
 .info-card {
@@ -577,7 +600,6 @@ main[role="main"] {
 @media (max-width: 900px) {
   .site-nav__inner,
   .site-footer__inner,
-  .home-layout__intro,
   .feature-card,
   .listing-card {
     grid-template-columns: 1fr;
@@ -598,8 +620,11 @@ main[role="main"] {
   }
 
   .site-hero__body {
-    min-height: calc(31rem - 5rem);
     padding-top: 3.2rem;
+  }
+
+  .site-hero__copy {
+    min-height: calc(31rem - 5rem);
   }
 
   .site-hero__profiles {
@@ -622,6 +647,7 @@ main[role="main"] {
   }
 
   .home-summary,
+  .portrait-card,
   .info-card,
   .section-intro,
   .paper-layout,
@@ -638,5 +664,13 @@ main[role="main"] {
 
   .site-nav__link {
     font-size: 0.92rem;
+  }
+
+  .home-layout__intro {
+    grid-template-columns: 1fr;
+  }
+
+  .portrait-card {
+    max-width: min(16rem, 100%);
   }
 }

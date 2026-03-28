@@ -6,6 +6,7 @@
 {{ with site.Params.ananke.social.email.email }}
   {{ $email = printf "mailto:%s" . }}
 {{ end }}
+{{ $orcid := site.Params.social.orcid }}
 
 <footer class="site-footer" role="contentinfo">
   <div class="site-shell site-footer__inner">
@@ -21,10 +22,26 @@
         <a class="site-footer__link" href="{{ . }}">Email</a>
       {{ end }}
       {{ with $github }}
-        <a class="site-footer__link" href="{{ . }}" target="_blank" rel="noopener">GitHub</a>
+        <a class="site-footer__link site-footer__link--icon" href="{{ . }}" target="_blank" rel="noopener">
+          <span class="site-footer__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" focusable="false">
+              <path d="M12 .5C5.65.5.5 5.65.5 12A11.5 11.5 0 0 0 8.36 22.6c.58.11.79-.25.79-.56v-2.18c-3.18.69-3.85-1.35-3.85-1.35-.52-1.32-1.27-1.67-1.27-1.67-1.04-.71.08-.69.08-.69 1.15.08 1.76 1.18 1.76 1.18 1.02 1.74 2.67 1.24 3.32.95.1-.74.4-1.24.72-1.53-2.54-.29-5.22-1.27-5.22-5.63 0-1.24.44-2.25 1.17-3.05-.12-.29-.51-1.47.11-3.06 0 0 .95-.3 3.11 1.17A10.8 10.8 0 0 1 12 6.35c.96 0 1.93.13 2.83.38 2.16-1.46 3.1-1.17 3.1-1.17.63 1.59.24 2.77.12 3.06.73.8 1.17 1.81 1.17 3.05 0 4.37-2.68 5.33-5.24 5.62.41.35.77 1.04.77 2.1v3.11c0 .31.21.68.8.56A11.5 11.5 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z" fill="currentColor"/>
+            </svg>
+          </span>
+          GitHub
+        </a>
+      {{ end }}
+      {{ with $orcid }}
+        <a class="site-footer__link site-footer__link--icon" href="{{ . }}" target="_blank" rel="noopener">
+          <span class="site-footer__icon site-footer__icon--orcid" aria-hidden="true">
+            <svg viewBox="0 0 256 256" focusable="false">
+              <path d="M86.3 0C38.6 0 0 38.6 0 86.3v83.4C0 217.4 38.6 256 86.3 256h83.4c47.7 0 86.3-38.6 86.3-86.3V86.3C256 38.6 217.4 0 169.7 0H86.3Zm20.4 49.9a13.6 13.6 0 1 1 0 27.2 13.6 13.6 0 0 1 0-27.2Zm58.2 22.9c23.8 0 43.4 15.7 43.4 44.9 0 29.8-18.9 45.7-46.2 45.7h-34.9V72.8h37.7Zm-69.8 1.4h23.1v90.1H95.1V74.2Zm35.8 18.8V144h27.7c16.7 0 26.5-10.1 26.5-26 0-15.2-9.7-25-25.8-25h-28.4Z" fill="currentColor"/>
+            </svg>
+          </span>
+          ORCID
+        </a>
       {{ end }}
       <a class="site-footer__link" href="{{ "/works/" | relURL }}">Research</a>
-      <a class="site-footer__link" href="{{ "/about/" | relURL }}">About</a>
     </div>
   </div>
 </footer>

@@ -64,3 +64,6 @@ networks = [
 [params.ananke.social.github]
 # url = "https://github.com/CoastEgo"
 username = "CoastEgo"
+
+[params.social]
+orcid = "https://orcid.org/0009-0000-7721-6342"

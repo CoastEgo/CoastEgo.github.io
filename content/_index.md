@@ -1,16 +1,14 @@
 ---
 title: "Haibin Ren"
-
-description: "Ph.D. student @ Tsinghua University"
-# 1. To ensure Netlify triggers a build on our exampleSite instance, we need to change a file in the exampleSite directory.
+description: "Ph.D. student in astronomy at Tsinghua University"
 theme_version: '2.12.2'
-
-cascade:
-  featured_image: '/images/banner.jpg'
-  featured_image_caption: 'Credit: ESA/Hubble'
+featured_image: '/images/banner.jpg'
+featured_image_caption: 'Background image credit: ESA/Hubble'
 
 ---
 
-Welcome to my personal website, I'm Haibin Ren (任海滨), currently a Ph.D. student at Department of Astronomy, Tsinghua University. I'm working with Wei Zhu, focusing on microlensing binary lensing. I'm also interested in Machine Learning and statistical inference.
+I am Haibin Ren (任海滨), a Ph.D. student working with Wei Zhu in the Department of Astronomy at Tsinghua University. My research centers on gravitational microlensing, computational methods, and statistical inference for astrophysical data.
 
+I am particularly interested in problems where physical modeling, numerical accuracy, and efficient inference need to work closely together. More broadly, I am interested in machine learning for astronomy and in building research software that is both scientifically reliable and practically useful.
 
+This website collects selected research projects, software, and short academic notes related to my work.

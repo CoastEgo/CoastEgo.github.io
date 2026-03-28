@@ -344,6 +344,7 @@ main[role="main"] {
 .info-grid {
   display: grid;
   gap: 1.25rem;
+  align-content: start;
 }
 
 .info-card {
@@ -357,10 +358,43 @@ main[role="main"] {
   margin-bottom: 0.7rem;
 }
 
+.info-card--focus h2 {
+  max-width: 16ch;
+}
+
 .info-card p:last-child,
 .feature-card__body p:last-of-type,
 .listing-card__body p:last-of-type {
   margin-bottom: 0;
+}
+
+.focus-intro {
+  margin: 0.85rem 0 0;
+  color: var(--muted);
+  font-size: 0.98rem;
+  line-height: 1.65;
+}
+
+.focus-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  padding: 0;
+  margin: 1.15rem 0 0;
+  list-style: none;
+}
+
+.focus-tags li {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.4rem;
+  padding: 0.55rem 0.9rem;
+  border: 1px solid rgba(95, 67, 38, 0.12);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.52);
+  color: var(--text);
+  font-size: 0.95rem;
+  line-height: 1.2;
 }
 
 .section-heading {
@@ -574,6 +608,10 @@ main[role="main"] {
 
   .site-hero__profiles {
     gap: 0.85rem;
+  }
+
+  .info-card--focus h2 {
+    max-width: none;
   }
 
   .site-footer__links {

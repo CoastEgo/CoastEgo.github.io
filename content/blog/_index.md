@@ -2,9 +2,8 @@
 title: "Blogs"
 date: 2024-12-11
 draft: false
-description: ""
-
+description: "Short notes, updates, and technical writing."
 
 ---
 
-Something coming soon...
+This section will host short research notes, updates, and occasional technical write-ups.

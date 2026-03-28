@@ -7,8 +7,8 @@ featured_image_caption: 'Background image credit: ESA/Hubble'
 
 ---
 
-I am Haibin Ren (任海滨), a Ph.D. student working with Wei Zhu in the Department of Astronomy at Tsinghua University. My research centers on gravitational microlensing, computational methods, and statistical inference for astrophysical data.
+I am Haibin Ren (任海滨), a Ph.D. student working with Wei Zhu in the Department of Astronomy at Tsinghua University. Before that, I received my B.S. in physics from Beihang University in 2023.
 
-I am particularly interested in problems where physical modeling, numerical accuracy, and efficient inference need to work closely together. More broadly, I am interested in machine learning for astronomy and in building research software that is both scientifically reliable and practically useful.
+My research centers on gravitational microlensing, computational methods, and statistical inference for astrophysical data. More broadly, I am interested in machine learning for astronomy and in building research software that is both scientifically reliable and practically useful.
 
 This website collects selected research projects, software, and short academic notes related to my work.

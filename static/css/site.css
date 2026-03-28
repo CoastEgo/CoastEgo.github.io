@@ -358,10 +358,6 @@ main[role="main"] {
   margin-bottom: 0.7rem;
 }
 
-.info-card--focus h2 {
-  max-width: 16ch;
-}
-
 .info-card p:last-child,
 .feature-card__body p:last-of-type,
 .listing-card__body p:last-of-type {
@@ -608,10 +604,6 @@ main[role="main"] {
 
   .site-hero__profiles {
     gap: 0.85rem;
-  }
-
-  .info-card--focus h2 {
-    max-width: none;
   }
 
   .site-footer__links {
